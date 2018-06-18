@@ -1,7 +1,7 @@
 # &lt;whcg-chart-feeder&gt;
 
 ```html
-<whcg-chart type="line" width="800px" height="300px" legendposition="right" legendfontsize="10" legendfontfamily="Helvetica" jsondata="{{chartJsJson}}"></whcg-chart>
+<whcg-chart-feeder whcgjsoninput="[[whcgElectricityJson]]" datapackage="yearlyamounts" chartjs="{{chartJsJson2}}"></whcg-chart-feeder>
 ```
 
 ## Getting started 
