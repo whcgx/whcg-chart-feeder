@@ -15,10 +15,11 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
     
     static get properties() {
         return {
-            jsoninput: {
+            whcgjsoninput: {
                 type: String,
                 readOnly: false,
-                observer: '_jsoninputChanged'
+                notify: true,
+                observer: '_whcgjsoninputChanged'
             },
             chartjs: {
                 type: String,
@@ -27,12 +28,14 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
             },
             datapackage: {
                 type: String,
+                notify: true,
                 readOnly: false,
             },
         }
     }
 
-    _jsoninputChanged() {
+    _whcgjsoninputChanged() {
+        console.log('HERE!');
         this._chartJsTransformer();
     }
 
@@ -42,10 +45,12 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
     }
 
     _chartJsTransformer() {
-        let str = this.jsoninput;
+        let str = this.whcgjsoninput;
         let parsedStr = JSON.parse(str);
         let result = parsedStr.result;
 
+        console.log('result!!');
+        console.log(result);
         let columnNames = Object.keys(result[0].data[this.datapackage].dataset);
         let color = 'grey';
 
@@ -67,76 +72,76 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
         this.chartjs = chartJsDataJson;
     }
 
-    ready() {
-        super.ready();
-        this.jsoninput = `{
-            "result": [
-                {
-                    "object": "Elkostnad",
-                    "data": {
-                                "yearlyamounts": {
-                                    "label": "öre/kWh",
-                                    "dataset": {
-                                        "2018": 40,
-                                        "2014": 60,
-                                        "2010": 100
-                                    } 
-                                },
-                                "suppliers": {
-                                    "label": "Leverantör",
-                                    "dataset": {
-                                        "2018": 56,
-                                        "2014": 234,
-                                        "2010": 45
-                                    }  
-                                }
-                            }
-                },
-                {
-                    "object": "Vattenkostnad",
-                    "data": {
-                                "yearlyamounts": {
-                                    "label": "kr/m3",
-                                    "dataset": {
-                                        "2018": 400,
-                                        "2014": 607,
-                                        "2010": 100
-                                    } 
-                                },
-                                "suppliers": {
-                                    "label": "Leverantör",
-                                    "dataset": {
-                                        "2018": 76,
-                                        "2014": 37,
-                                        "2010": 77
-                                    }  
-                                }
-                            }
-                },
-                {
-                    "object": "Hyresintäkter",
-                    "data": {
-                                "yearlyamounts": {
-                                    "label": "kr",
-                                    "dataset": {
-                                        "2018": 140,
-                                        "2014": 260,
-                                        "2010": 10
-                                    } 
-                                },
-                                "suppliers": {
-                                    "label": "Hyresgäst",
-                                    "dataset": {
-                                        "2018": "Olle",
-                                        "2014": "Adam",
-                                        "2010": "Stina"
-                                    }  
-                                }
-                            }
-                }
-            ]
-        }`;
-    }
+    // ready() {
+    //     super.ready();
+    //     this.whcgjsoninput = `{
+    //         "result": [
+    //             {
+    //                 "object": "Elkostnad",
+    //                 "data": {
+    //                             "yearlyamounts": {
+    //                                 "label": "öre/kWh",
+    //                                 "dataset": {
+    //                                     "2018": 40,
+    //                                     "2014": 60,
+    //                                     "2010": 100
+    //                                 } 
+    //                             },
+    //                             "suppliers": {
+    //                                 "label": "Leverantör",
+    //                                 "dataset": {
+    //                                     "2018": 56,
+    //                                     "2014": 234,
+    //                                     "2010": 45
+    //                                 }  
+    //                             }
+    //                         }
+    //             },
+    //             {
+    //                 "object": "Vattenkostnad",
+    //                 "data": {
+    //                             "yearlyamounts": {
+    //                                 "label": "kr/m3",
+    //                                 "dataset": {
+    //                                     "2018": 400,
+    //                                     "2014": 607,
+    //                                     "2010": 100
+    //                                 } 
+    //                             },
+    //                             "suppliers": {
+    //                                 "label": "Leverantör",
+    //                                 "dataset": {
+    //                                     "2018": 76,
+    //                                     "2014": 37,
+    //                                     "2010": 77
+    //                                 }  
+    //                             }
+    //                         }
+    //             },
+    //             {
+    //                 "object": "Hyresintäkter",
+    //                 "data": {
+    //                             "yearlyamounts": {
+    //                                 "label": "kr",
+    //                                 "dataset": {
+    //                                     "2018": 140,
+    //                                     "2014": 260,
+    //                                     "2010": 10
+    //                                 } 
+    //                             },
+    //                             "suppliers": {
+    //                                 "label": "Hyresgäst",
+    //                                 "dataset": {
+    //                                     "2018": "Olle",
+    //                                     "2014": "Adam",
+    //                                     "2010": "Stina"
+    //                                 }  
+    //                             }
+    //                         }
+    //             }
+    //         ]
+    //     }`;
+    // }
 }
 
 window.customElements.define('whcg-chart-feeder', WhcgChartFeeder);
