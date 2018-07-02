@@ -141,3 +141,4 @@ export class WhcgChartFeeder extends PolymerElement {
 }
 
 window.customElements.define('whcg-chart-feeder', WhcgChartFeeder);
+
