@@ -1,23 +1,25 @@
 {
   "name": "@whcg/whcg-chart-feeder",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.2.0",
+  "description": "```html <whcg-chart-feeder whcgjsoninput=\"[[whcgElectricityJson]]\" datapackage=\"yearlyamounts\" chartjs=\"{{chartJsJson2}}\"></whcg-chart-feeder> ```",
   "main": "dist/index.js",
   "module": "dist/index.es6.js",
   "scripts": {
-    "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "build": "rollup -c"
+ },
   "files": [
-    "dist"
-  ],
-  "author": "WHCG",
-  "license": "ISC",
-  "devDependencies": {
-    "rollup": "^0.60.7",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "dist",
+    "theme"
+ ],
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whcgx/whcg-chart-feeder.git"
   },
-  "dependencies": {
-    "@polymer/polymer": "^3.0.2"
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whcgx/whcg-chart-feeder/issues"
+  },
+  "homepage": "https://github.com/whcgx/whcg-chart-feeder#readme"
 }

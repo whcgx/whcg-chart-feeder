@@ -52,15 +52,16 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
         console.log('result!!');
         console.log(result);
         let columnNames = Object.keys(result[0].data[this.datapackage].dataset);
-        let color = 'grey';
+       // let color = 'white';
 
         let datasets = result.map((item) => {
             let obj = {};
 
             obj.label = item.object;
-            obj.backgroundColor = this.getRandomColor();
+            //obj.backgroundColor = this.getRandomColor();
+            obj.backgroundColor = 'hsla(24, 70%, 50%, 1)';
             obj.data = Object.values(item.data[this.datapackage].dataset);
-            obj.borderColor = color;
+            obj.borderColor = '#FFFFFF';
             obj.borderWidth = 1;
             return obj;
         });
