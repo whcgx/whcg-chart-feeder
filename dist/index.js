@@ -35,7 +35,7 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
     }
 
     _whcgjsoninputChanged() {
-        console.log('HERE!');
+        // console.log('HERE!');
         this._chartJsTransformer();
     }
 
@@ -49,8 +49,8 @@ class WhcgChartFeeder extends polymerElement_js.PolymerElement {
         let parsedStr = JSON.parse(str);
         let result = parsedStr.result;
 
-        console.log('result!!');
-        console.log(result);
+        // console.log('result!!');
+        // console.log(result);
         let columnNames = Object.keys(result[0].data[this.datapackage].dataset);
        // let color = 'white';
 
